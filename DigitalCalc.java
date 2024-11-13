@@ -12,29 +12,21 @@ import java.util.Scanner;
 
 public class DigitalCalc {
     public static void main(String[] args) {
-        Scanner sc 
-                = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         System.out.print("Enter a number: ");
-        int number = sc.nextInt();
-        int digitalRoot = calculateRoot(number);
-        System.out.println("Sum of digits until single digit: " + digitalRoot);
-        sc.close();
-    }
+        int num = sc.nextInt();
 
-    public static int calculateRoot(int number) {
-        // Using a while loop
-        while (number >= 10) {
-            number = sumOfDigits(number);
-        }
-        return number;
-    }
+        do {
+            int sum = 0;
+            int temp = num; // Temporary variable to store the value of num
 
-    public static int sumOfDigits(int number) {
-        int sum = 0;
-        // Using a for loop
-        for (char digit : String.valueOf(number).toCharArray()) {
-            sum += Character.getNumericValue(digit);
-        }
-        return sum;
+            while (temp > 0) {
+                sum += temp % 10;
+                temp /= 10;
+            }
+            num = sum; // Update num to be the sum of its digits
+        } while (num > 9);
+
+        System.out.println("Sum of digits until single digit: " + num);
     }
 }
