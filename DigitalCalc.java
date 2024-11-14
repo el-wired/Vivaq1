@@ -6,7 +6,7 @@ package com.mycompany.digitalcalc;
 
 /**
  *
- * @author elnei
+ * 
  */
 import java.util.Scanner;
 
